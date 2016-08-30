@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>660464150583-3gjfokvlaj1jdcfikt8ri18js59g2vm2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.660464150583-3gjfokvlaj1jdcfikt8ri18js59g2vm2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDlPujqu75DCripYvt378wVYCrRW9J5F58</string>
+	<key>GCM_SENDER_ID</key>
+	<string>660464150583</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.restachat.ios</string>
+	<key>PROJECT_ID</key>
+	<string>restachat-df3c5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>restachat-df3c5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:660464150583:ios:e350c3e045cc0bc9</string>
+	<key>DATABASE_URL</key>
+	<string>https://restachat-df3c5.firebaseio.com</string>
+</dict>
+</plist>

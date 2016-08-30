@@ -15,7 +15,8 @@ import { MultilingualModule } from './app/frameworks/i18n/multilingual.module';
 import { SampleModule } from './app/frameworks/sample/sample.module';
 
 // config
-import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
+import { Config, WindowService, ConsoleService, DatabaseService } from './app/frameworks/core/index';
+import {FIREBASE} from './app/frameworks/restachat/index';
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
 Config.DEBUG.LEVEL_4 = true;
 
@@ -24,6 +25,8 @@ import { AppConfig } from './app/frameworks/sample/services/app-config';
 import { MultilingualService } from './app/frameworks/i18n/services/multilingual.service';
 // custom i18n language support
 MultilingualService.SUPPORTED_LANGUAGES = AppConfig.SUPPORTED_LANGUAGES;
+
+var firebase = require('firebase');
 
 let routerModule = RouterModule.forRoot(routes);
 
@@ -38,7 +41,8 @@ if ('<%= TARGET_DESKTOP %>' === 'true') {
     BrowserModule,
     CoreModule.forRoot([
       { provide: WindowService, useValue: window },
-      { provide: ConsoleService, useValue: console }
+      { provide: ConsoleService, useValue: console },
+      {provide: FIREBASE,  useValue: firebase},
     ]),
     routerModule,
     AnalyticsModule,
@@ -50,7 +54,8 @@ if ('<%= TARGET_DESKTOP %>' === 'true') {
     {
       provide: APP_BASE_HREF,
       useValue: '<%= APP_BASE %>'
-    }
+    },
+    DatabaseService
   ],
   bootstrap: [AppComponent]
 })

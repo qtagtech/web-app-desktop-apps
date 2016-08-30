@@ -13,7 +13,7 @@ import { TranslateModule, TranslateLoader } from 'ng2-translate/ng2-translate';
 import { TNSTranslateLoader } from 'nativescript-ng2-translate/nativescript-ng2-translate';
 
 // app
-import { WindowService, ConsoleService, RouterExtensions } from './app/frameworks/core/index';
+import { WindowService, ConsoleService, RouterExtensions, DatabaseService } from './app/frameworks/core/index';
 import { NSAppComponent } from './pages/app/app.component';
 import { AboutComponent } from './app/components/about/about.component';
 import { HomeComponent } from './app/components/home/home.component';
@@ -24,16 +24,21 @@ import { CoreModule } from './app/frameworks/core/core.module';
 import { AnalyticsModule } from './app/frameworks/analytics/analytics.module';
 import { MultilingualModule } from './app/frameworks/i18n/multilingual.module';
 import { SampleModule } from './app/frameworks/sample/sample.module';
+import { FIREBASE } from './app/frameworks/restachat/index';
 
 // {N} custom app specific
-import { WindowNative } from './shared/core/index';
+import { WindowNative, NSDatabaseService } from './shared/core/index';
 import { NS_ANALYTICS_PROVIDERS } from './shared/nativescript/index';
+
+var firebase = require('nativescript-plugin-firebase');
 
 @NgModule({
   imports: [
     CoreModule.forRoot([
       { provide: WindowService, useClass: WindowNative },
-      { provide: ConsoleService, useValue: console }
+      { provide: ConsoleService, useValue: console },
+      {provide: FIREBASE, useValue: firebase},
+      {provide: DatabaseService, useClass: NSDatabaseService}
     ]),
     AnalyticsModule,
     MultilingualModule,
