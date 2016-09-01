@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { BaseComponent, RouterExtensions } from '../../frameworks/core/index';
 import { NameListService } from '../../frameworks/sample/index';
 
+
 @BaseComponent({
   moduleId: module.id,
   selector: 'sd-home',
@@ -14,7 +15,7 @@ import { NameListService } from '../../frameworks/sample/index';
 export class HomeComponent {
   public newName: string = '';
   constructor(private store: Store<any>, public nameListService: NameListService, public routerext: RouterExtensions) {
-
+    
   }
 
   /*

@@ -11,6 +11,8 @@ import { ConsoleService } from './services/console.service';
 import { LogService } from './services/log.service';
 import { RouterExtensions } from './services/router-extensions';
 import { WindowService } from './services/window.service';
+import { DatabaseService } from './services/database.service';
+
 
 interface ICoreModuleOptions {
   window?: any;
@@ -21,11 +23,12 @@ interface ICoreModuleOptions {
  * Do not specify providers for modules that might be imported by a lazy loaded module.
  */
 
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    HttpModule
+    HttpModule,
   ],
   declarations: [
     PlatformDirective
@@ -34,13 +37,14 @@ interface ICoreModuleOptions {
     CommonModule,
     FormsModule,
     RouterModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [
     ConsoleService,
     LogService,
     RouterExtensions,
-    WindowService
+    WindowService,
+    DatabaseService
   ]
 })
 export class CoreModule {

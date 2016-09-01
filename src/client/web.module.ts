@@ -13,20 +13,21 @@ import { CoreModule } from './app/frameworks/core/core.module';
 import { AnalyticsModule } from './app/frameworks/analytics/analytics.module';
 import { MultilingualModule } from './app/frameworks/i18n/multilingual.module';
 import { SampleModule } from './app/frameworks/sample/sample.module';
+import { FIREBASE } from './app/frameworks/restachat/index'; 
 
 // config
 import { Config, WindowService, ConsoleService, DatabaseService } from './app/frameworks/core/index';
-import {FIREBASE} from './app/frameworks/restachat/index';
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
 Config.DEBUG.LEVEL_4 = true;
 
 // sample config (extra)
 import { AppConfig } from './app/frameworks/sample/services/app-config';
 import { MultilingualService } from './app/frameworks/i18n/services/multilingual.service';
+
+
 // custom i18n language support
 MultilingualService.SUPPORTED_LANGUAGES = AppConfig.SUPPORTED_LANGUAGES;
 
-var firebase = require('firebase');
 
 let routerModule = RouterModule.forRoot(routes);
 
@@ -36,18 +37,21 @@ if ('<%= TARGET_DESKTOP %>' === 'true') {
   routerModule = RouterModule.forRoot(routes, {useHash: true});
 }
 
+const firebase = require('firebase');
+
+
 @NgModule({
   imports: [
     BrowserModule,
     CoreModule.forRoot([
       { provide: WindowService, useValue: window },
       { provide: ConsoleService, useValue: console },
-      {provide: FIREBASE,  useValue: firebase},
+      { provide: FIREBASE, useValue: firebase}
     ]),
     routerModule,
     AnalyticsModule,
     MultilingualModule,
-    SampleModule
+    SampleModule,
   ],
   declarations: [AppComponent],
   providers: [
@@ -55,7 +59,6 @@ if ('<%= TARGET_DESKTOP %>' === 'true') {
       provide: APP_BASE_HREF,
       useValue: '<%= APP_BASE %>'
     },
-    DatabaseService
   ],
   bootstrap: [AppComponent]
 })

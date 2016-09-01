@@ -1,9 +1,10 @@
 import {Injectable, Inject, NgZone} from '@angular/core';
 import {FIREBASE} from '../../restachat/index';
+import { IDatabase } from '../interfaces/idatabase';
 
 
 @Injectable()
-export class DatabaseService {
+export class DatabaseService implements IDatabase {
     private database: any;
     private onSync: Function;
     private userID: string;

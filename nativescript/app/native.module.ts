@@ -13,11 +13,12 @@ import { TranslateModule, TranslateLoader } from 'ng2-translate/ng2-translate';
 import { TNSTranslateLoader } from 'nativescript-ng2-translate/nativescript-ng2-translate';
 
 // app
-import { WindowService, ConsoleService, RouterExtensions, DatabaseService } from './app/frameworks/core/index';
+import { WindowService, ConsoleService, RouterExtensions } from './app/frameworks/core/index';
 import { NSAppComponent } from './pages/app/app.component';
 import { AboutComponent } from './app/components/about/about.component';
 import { HomeComponent } from './app/components/home/home.component';
 import { routes } from './app/components/app.routes';
+import { DatabaseService } from './app/frameworks/restachat/index';
 
 // feature modules
 import { CoreModule } from './app/frameworks/core/core.module';
