@@ -1,7 +1,7 @@
 import {Injectable, Inject, NgZone} from '@angular/core';
 import {FIREBASE} from '../../../app/frameworks/restachat/index';
 
-@Injectable
+@Injectable()
 export class NSDatabaseService{
     private database: any;
     private onSync: Function;
@@ -12,9 +12,9 @@ export class NSDatabaseService{
         console.log('Constructing NSDatabaseService');
         this.database = firebase;
         this.database.init({
-            persist: true //Allow disl persistance, Default FALSE.
+            persist: true //Allow disk persistance, Default FALSE.
         }).then((instance: any)=>{
-            console.log('Firebase.init successful');
+            console.log('firebase.init successful');
         }, (error: any)=>{
             console.log('firebase.init error');
         });
@@ -28,9 +28,9 @@ export class NSDatabaseService{
         }, path);
     }
 
-    addChild(path: string, data: any, callback?:Function):void{
+    addChild(path: string, data: any, callback?: Function):void{
         this.database.push(path, data).then((result:any)=>{
-            console.log('created key: '+ result.key);
+            console.log('created key: ' + result.key);
             if(callback){
                 this.NgZone.run(()=>{
                     callback(result.key);

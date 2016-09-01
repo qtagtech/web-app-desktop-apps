@@ -28,6 +28,10 @@ export class ProjectConfig extends SeedAdvancedConfig {
       // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
       // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
     ];
+
+    /**
+     * Where to get firebase from.
+     */
     this.SYSTEM_CONFIG.paths['firebase'] = `${this.APP_BASE}node_modules/firebase/firebase`;
     this.SYSTEM_BUILDER_CONFIG.paths['firebase'] = `node_modules/firebase/firebase.js`;
 

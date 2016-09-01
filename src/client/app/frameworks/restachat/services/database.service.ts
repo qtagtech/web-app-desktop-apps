@@ -30,7 +30,7 @@ export class DatabaseService {
         });
     }
 
-    addChild(path: string, data: any, callback?:Function):void{
+    addChild(path: string, data: any, callback?: Function):void{
         this.database.ref(path).push(data, (err: any)=>{
             if(callback && !err){
                 this.ngZone.run(()=>{
